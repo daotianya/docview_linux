@@ -1,0 +1,365 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.idocv</groupId>
+	<artifactId>docview_linux</artifactId>
+	<version>2.2.1_20131125</version>
+	<packaging>war</packaging>
+	<name>docview</name>
+	<description>document online viewer</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<org.springframework.version>3.1.2.RELEASE</org.springframework.version>
+		<org.eclipse.jetty.version>8.1.5.v20120716</org.eclipse.jetty.version>
+	</properties>
+
+	<dependencies>
+		<!-- common jar start -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.5</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>1.6.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.6.6</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.0.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.4</version>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+		<!-- common jar end -->
+
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>2.5.1</version>
+		</dependency>
+
+		<!-- jetty container start -->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>${org.eclipse.jetty.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlets</artifactId>
+			<version>${org.eclipse.jetty.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlet</artifactId>
+			<version>${org.eclipse.jetty.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>${org.eclipse.jetty.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-websocket</artifactId>
+			<version>${org.eclipse.jetty.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-jsp</artifactId>
+			<version>${org.eclipse.jetty.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>3.0.20100224</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- jetty container end -->
+
+		<dependency>
+			<groupId>org.clojars.cbilson</groupId>
+			<artifactId>pinyin4j</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+
+		<!-- Database -->
+		<dependency>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+		<!-- Database end -->
+
+		<!-- Office -->
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<version>2.6.12</version>
+		</dependency>
+		<!-- Office end -->
+
+		<!-- Etherpad -->
+		<dependency>
+			<groupId>org.etherpad</groupId>
+			<artifactId>etherpad-lite-client</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.etherpad</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<!-- Etherpad end -->
+	</dependencies>
+
+	<build>
+		<!-- Set properties in resource files -->
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<encoding>utf-8</encoding>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<!-- skip test -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.1.3</version>
+				<configuration>
+					<skip>true</skip>
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${org.eclipse.jetty.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.eclipse.jetty</groupId>
+						<artifactId>jetty-servlets</artifactId>
+						<version>${org.eclipse.jetty.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.eclipse.jetty</groupId>
+						<artifactId>jetty-jsp</artifactId>
+						<version>${org.eclipse.jetty.version}</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<useFileMappedBuffer>false</useFileMappedBuffer>
+					<connectors>
+						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+							<port>16890</port>
+							<maxIdleTime>60000</maxIdleTime>
+						</connector>
+					</connectors>
+					<stopKey>docviewstopkey</stopKey>
+					<stopPort>16891</stopPort>
+					<jvmArgs>-Xms512M -Xmx1024M -XX:PermSize=128M -XX:MaxPermSize=256M</jvmArgs>
+					<systemProperties>
+						<systemProperty>
+							<name>org.eclipse.jetty.server.Request.maxFormContentSize</name>
+							<value>1000000</value>
+						</systemProperty>
+					</systemProperties>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<appendAssemblyId>false</appendAssemblyId>
+					<descriptors>
+						<descriptor>src/main/assembly/package.xml</descriptor>
+					</descriptors>
+					<executions>
+						<execution>
+							<id>make-assembly</id>
+							<phase>package</phase>
+							<goals>
+								<goal>single</goal>
+							</goals>
+						</execution>
+					</executions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- Different Environment Profiles -->
+	<profiles>
+		<!-- Development -->
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<!-- Data -->
+				<pom.docview.data.url>http://data.idocv.com/</pom.docview.data.url>
+				<pom.docview.data.dir>D:/idocv/data/</pom.docview.data.dir>
+
+				<!-- Database -->
+				<pom.docview.mongodb.ip>localhost</pom.docview.mongodb.ip>
+				<pom.docview.mongodb.port>27017</pom.docview.mongodb.port>
+
+				<!-- Upload -->
+				<pom.upload.max.size>1000000</pom.upload.max.size>
+				<pom.upload.max.msg>\u514d\u8d39\u7248\u53ea\u652f\u63011M\u4ee5\u5185\u6587\u4ef6\u9884\u89c8\uff0c\u8be6\u60c5\u54a8\u8be2\uff1a400-000-7644</pom.upload.max.msg>
+
+				<!-- Office converter -->
+				<pom.office.cmd.word2html>D:/idocv/converter/word2html.exe</pom.office.cmd.word2html>
+				<pom.office.cmd.excel2html>D:/idocv/converter/excel2html.exe</pom.office.cmd.excel2html>
+				<pom.office.cmd.ppt2jpg>D:/idocv/converter/ppt2jpg.exe</pom.office.cmd.ppt2jpg>
+				<pom.pdf.cmd.pdf2img>D:/idocv/converter/pdf2img/gswin64c.exe</pom.pdf.cmd.pdf2img>
+				<pom.pdf.cmd.pdf2html>D:/idocv/converter/pdf2html/pdf2htmlEX.exe</pom.pdf.cmd.pdf2html>
+			</properties>
+		</profile>
+		<!-- Consumer -->
+		<profile>
+			<id>consumer</id>
+			<properties>
+				<!-- Data -->
+				<pom.docview.data.url>http://127.0.0.1/data/</pom.docview.data.url>
+				<pom.docview.data.dir>D:/idocv/data/</pom.docview.data.dir>
+
+				<!-- Database -->
+				<pom.docview.mongodb.ip>localhost</pom.docview.mongodb.ip>
+				<pom.docview.mongodb.port>27017</pom.docview.mongodb.port>
+
+				<!-- Upload -->
+				<pom.upload.max.size>20000000</pom.upload.max.size>
+				<pom.upload.max.msg>\u9ed8\u8ba4\u652f\u630120M\u4ee5\u5185\u7684\u6587\u6863\u9884\u89c8\uff0c\u8be6\u60c5\u8bf7\u8054\u7cfb\u7ba1\u7406\u5458\uff01</pom.upload.max.msg>
+
+				<!-- Office converter -->
+				<pom.office.cmd.word2html>D:/idocv/converter/word2html.exe</pom.office.cmd.word2html>
+				<pom.office.cmd.excel2html>D:/idocv/converter/excel2html.exe</pom.office.cmd.excel2html>
+				<pom.office.cmd.ppt2jpg>D:/idocv/converter/ppt2jpg.exe</pom.office.cmd.ppt2jpg>
+				<pom.pdf.cmd.pdf2img>D:/idocv/converter/pdf2img/gswin64c.exe</pom.pdf.cmd.pdf2img>
+				<pom.pdf.cmd.pdf2html>D:/idocv/converter/pdf2html/pdf2htmlEX.exe</pom.pdf.cmd.pdf2html>
+			</properties>
+		</profile>
+		<!-- Production -->
+		<profile>
+			<id>prod</id>
+			<properties>
+				<!-- Data -->
+				<pom.docview.data.url>http://data.idocv.com/</pom.docview.data.url>
+				<pom.docview.data.dir>D:/idocv/data/</pom.docview.data.dir>
+
+				<!-- Database -->
+				<pom.docview.mongodb.ip>localhost</pom.docview.mongodb.ip>
+				<pom.docview.mongodb.port>27017</pom.docview.mongodb.port>
+
+				<!-- Upload -->
+				<pom.upload.max.size>1000000</pom.upload.max.size>
+				<pom.upload.max.msg>\u514d\u8d39\u7248\u53ea\u652f\u63011M\u4ee5\u5185\u6587\u4ef6\u9884\u89c8\uff0c\u8be6\u60c5\u54a8\u8be2\uff1a400-000-7644</pom.upload.max.msg>
+
+				<!-- Office converter -->
+				<pom.office.cmd.word2html>D:/idocv/converter/word2html.exe</pom.office.cmd.word2html>
+				<pom.office.cmd.excel2html>D:/idocv/converter/excel2html.exe</pom.office.cmd.excel2html>
+				<pom.office.cmd.ppt2jpg>D:/idocv/converter/ppt2jpg.exe</pom.office.cmd.ppt2jpg>
+				<pom.pdf.cmd.pdf2img>D:/idocv/converter/pdf2img/gswin64c.exe</pom.pdf.cmd.pdf2img>
+				<pom.pdf.cmd.pdf2html>D:/idocv/converter/pdf2html/pdf2htmlEX.exe</pom.pdf.cmd.pdf2html>
+			</properties>
+		</profile>
+	</profiles>
+</project>
